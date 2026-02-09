@@ -1,0 +1,236 @@
+/* ==============================
+   RESET & DASAR
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff6fb; /* soft pink background */
+  color: #2b2130; /* deep plum text */
+  line-height: 1.6;
+}
+
+/* ==============================
+   HEADER
+============================== */
+.header {
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #fff0f6, #ffdfee);
+  color: #7b2e4a;
+  text-shadow: none;
+  border-bottom: 1px solid rgba(123,46,74,0.06);
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #7b2e4a;
+}
+
+.header p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 5px;
+  color: #9b5b73;
+}
+
+/* ==============================
+   CONTAINER UTAMA
+============================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* ==============================
+   ARTIKEL / KORAN
+============================== */
+.koran {
+  background-color: #fff9fb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(177,84,117,0.06);
+  column-count: 2;
+  column-gap: 30px;
+  text-align: left;
+  color: #2b2130;
+}
+
+.koran h2 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  column-span: all;
+  break-inside: avoid;
+  color: #7b2e4a;
+  border-bottom: 2px solid rgba(123,46,74,0.08);
+}
+
+.koran p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  text-align: justify;
+  color: #4b3a44;
+  break-inside: avoid;
+}
+
+/* ==============================
+   IMAGE ARTIKEL
+============================== */
+.article-img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(177,84,117,0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.article-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(177,84,117,0.12);
+}
+
+/* ==============================
+   CARD GRID
+============================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  color: #2b2130;
+  box-shadow: 0 6px 20px rgba(177,84,117,0.05);
+  border-left: 4px solid #f09fb0;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+
+.card:hover {
+  background: linear-gradient(180deg, rgba(240,159,176,0.04), rgba(240,159,176,0.02));
+  box-shadow: 0 12px 30px rgba(177,84,117,0.08);
+  transform: translateY(-6px);
+  border-left-color: #ff85a2;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+.footer {
+  text-align: center;
+  padding: 24px 20px;
+  background: rgba(255,243,247,0.8);
+  color: #6b3b4a;
+  border-top: 1px solid rgba(123,46,74,0.06);
+}
+
+/* ==============================
+   TOMBOL PRINT
+============================== */
+.print-btn {
+  background: linear-gradient(135deg, #ff9fb9 0%, #ff7aa2 100%);
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(177,84,117,0.08);
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   RESPONSIF TABLET
+============================== */
+@media (max-width: 768px) {
+  .koran {
+    column-count: 1;
+    padding: 20px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================
+   RESPONSIF MOBILE
+============================== */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.5rem; }
+  .header p { font-size: 0.9rem; }
+  .container { padding: 15px; }
+  .koran { padding: 15px; column-count: 1; }
+  .koran h2 { font-size: 1.3rem; margin-bottom: 15px; }
+  .koran p { font-size: 0.95rem; margin-bottom: 12px; text-align: center; }
+  .article-img { margin-bottom: 20px; border-radius: 10px; }
+}
+
+/* ==============================
+   PRINT FRIENDLY
+============================== */
+@media print {
+  body {
+    background: white !important;
+    color: #000 !important;
+  }
+
+  .header, .footer, .print-btn {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 10mm !important;
+    transform: none !important;
+  }
+
+  .koran {
+    column-count: 2;
+    column-gap: 15px;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+    color: #000 !important;
+    text-align: left !important;
+  }
+
+  .koran h2 {
+    -webkit-background-clip: none !important;
+    -webkit-text-fill-color: #333 !important;
+    text-shadow: none !important;
+  }
+
+  .koran p {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  .article-img {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 36% !important;
+    max-width: 180px !important;
+    float: right;
+    margin: 0 0 0.8em 0.8em !important;
+  }
+}
